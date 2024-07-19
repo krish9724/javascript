@@ -441,7 +441,6 @@ class Student {
     }
 }
 
-// Example Usage
 const student = new Student('Bob', [85, 90, 78]);
 console.log(`The average grade for ${student.name} is ${student.averageGrade()}`); // Output: The average grade for Bob is 84.33333333333333
 // demo 28
@@ -460,8 +459,6 @@ class Vegetable {
       console.log(`The color of the ${this.name} has been changed to ${this.color}.`);
   }
 }
-
-// Example Usage
 const carrot = new Vegetable('carrot', 'orange');
 console.log(carrot.describe()); // Output: The carrot is orange.
 
@@ -487,15 +484,13 @@ class Lamp {
         return this.isOn ? 'The lamp is currently on.' : 'The lamp is currently off.';
     }
 }
-
-// Example Usage
 const lamp = new Lamp();
 console.log(lamp.checkState()); // Output: The lamp is currently off.
 console.log(lamp.turnOn()); // Output: The lamp is now on.
 console.log(lamp.checkState()); // Output: The lamp is currently on.
 console.log(lamp.turnOff()); // Output: The lamp is now off.
 console.log(lamp.checkState()); // Output: The lamp is currently off.
-//demo 30
+//calss demo 30
 class Counter {
     constructor(initialCount = 0) {
         this.count = initialCount;
@@ -523,7 +518,6 @@ class Counter {
     }
 }
 
-// Example Usage
 const counter = new Counter(5);
 console.log(counter.getCount()); // Output: 5
 console.log(counter.increment()); // Output: 6

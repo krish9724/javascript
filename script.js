@@ -491,39 +491,66 @@ console.log(lamp.checkState()); // Output: The lamp is currently on.
 console.log(lamp.turnOff()); // Output: The lamp is now off.
 console.log(lamp.checkState()); // Output: The lamp is currently off.
 //calss demo 30
-class Counter {
-    constructor(initialCount = 0) {
-        this.count = initialCount;
-    }
+// Destructuring Arrays and Objects
+const [a, b] = [1, 2];
+console.log(`a: ${a}, b: ${b}`);
 
-    increment() {
-        this.count += 1;
-        return this.count;
-    }
+const person = {
+    name: "Krish",
+    age: 22,
+    skills: ["C", "C++", "HTML", "CSS", "JavaScript", "GitHub"]
+};
 
-    decrement() {
-        if (this.count > 0) {
-            this.count -= 1;
-        }
-        return this.count;
-    }
+const { name, age, skills } = person;
+console.log(`Name: ${name}, Age: ${age}, Skills: ${skills.join(", ")}`);
 
-    reset() {
-        this.count = 0;
-        return this.count;
-    }
+// Promises and Async/Await
+function fetchData(url) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // Simulating an API call
+            const data = { data: "Some data from " + url };
+            resolve(data);
+        }, 2000);
+    });
+}
 
-    getCount() {
-        return this.count;
+async function getData(url) {
+    try {
+        const response = await fetchData(url);
+        console.log("Data received:", response.data);
+    } catch (error) {
+        console.error("Error fetching data:", error);
     }
 }
 
-const counter = new Counter(5);
-console.log(counter.getCount()); // Output: 5
-console.log(counter.increment()); // Output: 6
-console.log(counter.decrement()); // Output: 5
-console.log(counter.reset());    // Output: 0
-console.log(counter.getCount()); // Output: 0
+getData("https://api.example.com/data");
 
+// THIS Keyword
+class Developer {
+    constructor(name, skills) {
+        this.name = name;
+        this.skills = skills;
+    }
 
+    introduce() {
+        console.log(`Hi, I'm ${this.name} and my skills are ${this.skills.join(", ")}`);
+    }
 
+    addSkill(skill) {
+        this.skills.push(skill);
+        console.log(`Added skill: ${skill}`);
+    }
+
+    static fromObject({ name, skills }) {
+        return new Developer(name, skills);
+    }
+}
+
+const krish = new Developer(name, skills);
+krish.introduce();
+krish.addSkill("Node.js");
+
+const devObj = { name: "Sam", skills: ["Python", "Django"] };
+const sam = Developer.fromObject(devObj);
+sam.introduce();
